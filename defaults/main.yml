@@ -1,0 +1,10 @@
+---
+# Role default lower priority variables
+
+# Port to check when wait handler is called
+
+gnu_linux_wait_port: 22
+
+# timeout for wait handler
+
+gnu_linux_wait_timeout: 300

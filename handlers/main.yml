@@ -1,0 +1,20 @@
+---
+# Role handlers
+
+- name: reboot
+  command: shutdown -r +1 'Ansible triggered a reboot'
+  async: 0
+  poll: 0
+  changed_when: true
+  ignore_errors: true
+
+- name: wait
+  wait_for:
+    host: "{{ inventory_hostname }}"
+    state: started
+    port: >
+      {{ gnu_linux_wait_port | default(ansible_port) | default(22) }}
+    delay: 5
+    timeout: "{{ gnu_linux_wait_timeout | default(300) }}"
+  changed_when: false
+  check_mode: no

@@ -1,0 +1,6 @@
+---
+# Role dependencies
+
+dependencies:
+  - { role: environment,
+      tags: ["role::gnu_linux", "role::gnu_linux::configure"] }
