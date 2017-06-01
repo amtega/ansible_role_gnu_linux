@@ -8,3 +8,7 @@ gnu_linux_wait_port: 22
 # timeout for wait handler
 
 gnu_linux_wait_timeout: 300
+
+# time for pause handler
+
+gnu_linux_pause_time: 5
