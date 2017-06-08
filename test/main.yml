@@ -1,0 +1,24 @@
+---
+
+- name: run idempotence test
+  hosts: localhost
+  roles:
+    - role: docker_presets
+    - role: docker_sandbox
+      docker_sandbox_state: started
+
+- name: test gnu_linux role
+  hosts: docker_sandbox_containers
+  vars:
+    environment_config:
+      TEST_VARIABLE_1: "value 1"
+  roles:
+    - gnu_linux
+  tags:
+    - idempotence
+
+- name: cleanup docker docker sandbox
+  hosts: localhost
+  roles:
+    - role: docker_sandbox
+      docker_sandbox_state: absent

@@ -20,6 +20,6 @@
   check_mode: no
 
 - name: gnu_linux pause
-    pause:
-      seconds: "{{ gnu_linux.pause_time | default(5) }}"
-    delegate_to: localhost
+  pause:
+    seconds: "{{ gnu_linux.pause_time | default(5) }}"
+  delegate_to: localhost
