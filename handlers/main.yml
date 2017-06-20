@@ -7,13 +7,13 @@
   poll: 0
   changed_when: true
   ignore_errors: true
+  check_mode: no
 
 - name: gnu_linux wait
   wait_for:
-    host: "{{ inventory_hostname }}"
+    host: "{{ ansible_host }}"
     state: started
-    port: >
-      {{ gnu_linux_wait_port | default(ansible_port) | default(22) }}
+    port: "{{ gnu_linux_wait_port | default(ansible_port) | default(22) }}"
     delay: 5
     timeout: "{{ gnu_linux_wait_timeout | default(300) }}"
   changed_when: false
@@ -21,5 +21,6 @@
 
 - name: gnu_linux pause
   pause:
-    seconds: "{{ gnu_linux.pause_time | default(5) }}"
-  delegate_to: localhost
+    prompt: "Ansible gnu_linux role triggered a pause"
+    seconds: "{{ gnu_linux_pause_time | default(5) }}"
+  check_mode: no

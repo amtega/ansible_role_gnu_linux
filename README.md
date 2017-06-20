@@ -8,7 +8,7 @@ See dependant roles documentation to know how to configure each one.
 
 ## Dependencies
 
-- Ansible >= 2.0
+- Ansible >= 2.3
 - Role environment.
 
 ## Variables

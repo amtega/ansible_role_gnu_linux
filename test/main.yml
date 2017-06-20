@@ -6,16 +6,36 @@
     - role: docker_presets
     - role: docker_sandbox
       docker_sandbox_state: started
+      docker_sandbox_idempotence_test: false
 
 - name: test gnu_linux role
   hosts: docker_sandbox_containers
   vars:
-    environment_config:
-      TEST_VARIABLE_1: "value 1"
+    gnu_linux_wait_timeout: 10
   roles:
     - gnu_linux
   tags:
     - idempotence
+  tasks:
+    - name: test gnu_linux wait handler
+      copy:
+        src: /etc/issue
+        dest: /tmp/issue1
+        force: no
+      notify:
+        - gnu_linux wait
+
+    - meta: flush_handlers
+
+    - name: test gnu_linux pause handler
+      copy:
+        src: /etc/issue
+        dest: /tmp/issue2
+        force: no
+      notify:
+        - gnu_linux pause
+
+    - meta: flush_handlers
 
 - name: cleanup docker docker sandbox
   hosts: localhost
