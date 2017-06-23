@@ -8,6 +8,7 @@
   changed_when: true
   ignore_errors: true
   listen: reboot host
+  when: ansible_virtualization_type | default("") != "docker"
   check_mode: no
 
 - name: gnu_linux wait
