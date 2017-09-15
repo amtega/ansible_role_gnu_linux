@@ -19,8 +19,8 @@
   tasks:
     - name: test gnu_linux wait handler
       copy:
-        src: /etc/issue
-        dest: /tmp/issue1
+        content: ""
+        dest: /tmp/emptyfile1
         force: no
       notify:
         - gnu_linux wait
@@ -29,8 +29,8 @@
 
     - name: test gnu_linux pause handler
       copy:
-        src: /etc/issue
-        dest: /tmp/issue2
+        content: ""
+        dest: /tmp/emptyfile2
         force: no
       notify:
         - gnu_linux pause
