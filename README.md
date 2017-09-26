@@ -8,8 +8,7 @@ See dependant roles documentation to know how to configure each one.
 
 ## Dependencies
 
-- Ansible >= 2.3
-- Role environment.
+- Role environment if internet proxy is used.
 
 ## Variables
 

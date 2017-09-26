@@ -19,3 +19,12 @@ galaxy_info:
     - system
 
 dependencies:
+  - role: environment
+    environment_config:
+      http_proxy: "{{ gnu_linux_internet_proxy_http }}"
+    when: gnu_linux_internet_proxy_http | length > 0
+
+  - role: environment
+    environment_config:
+      https_proxy: "{{ gnu_linux_internet_proxy_https }}"
+    when: gnu_linux_internet_proxy_https | length > 0

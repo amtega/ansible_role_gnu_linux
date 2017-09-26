@@ -1,6 +1,11 @@
 ---
 # Role default lower priority variables
 
+# Internet proxy
+
+gnu_linux_internet_proxy_http:
+gnu_linux_internet_proxy_https:
+
 # Port to check when wait handler is called
 
 gnu_linux_wait_port: 22

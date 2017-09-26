@@ -11,3 +11,7 @@
 ## 2017-09-15
 
 - Improved unit tests.
+
+## 2017-09-26
+
+- Added support for internet proxy using the environment role.

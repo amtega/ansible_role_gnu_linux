@@ -12,11 +12,25 @@
   hosts: docker_sandbox_containers
   vars:
     gnu_linux_wait_timeout: 10
+    gnu_linux_internet_proxy_http: http://acme.local
+    gnu_linux_internet_proxy_https: https://acme.local
   roles:
     - gnu_linux
-  tags:
-    - idempotence
   tasks:
+    - name: get internet proxy environment variables
+      shell: >-
+        source /etc/environment ; echo $http_proxy ; echo $https_proxy
+      args:
+        executable: /bin/bash
+      changed_when: false
+      register: get_proxy_variables_result
+
+    - name: verify internet proxy variables
+      assert:
+        that:
+          - get_proxy_variables_result.stdout_lines[0] == "http://acme.local"
+          - get_proxy_variables_result.stdout_lines[1] == "https://acme.local"
+
     - name: test gnu_linux wait handler
       copy:
         content: ""
@@ -36,6 +50,9 @@
         - gnu_linux pause
 
     - meta: flush_handlers
+
+  tags:
+    - idempotence
 
 - name: cleanup docker docker sandbox
   hosts: localhost
