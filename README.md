@@ -6,13 +6,17 @@ This is an [Ansible](http://www.ansible.com) wrapper role which configures any s
 
 See dependant roles documentation to know how to configure each one.
 
-## Dependencies
+## Requirements
 
-- Role environment if internet proxy is used.
+- Ansible >= 2.4
 
 ## Variables
 
 A list of all the default variables for this role is available in `defaults/main.yml`.
+
+## Dependencies
+
+- Role environment if internet proxy is used.
 
 ## Usage
 

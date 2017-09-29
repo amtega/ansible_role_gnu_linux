@@ -15,3 +15,7 @@
 ## 2017-09-26
 
 - Added support for internet proxy using the environment role.
+
+## 2017-09-29
+
+- Updated documentation.
