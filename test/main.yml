@@ -3,8 +3,8 @@
 - name: run idempotence test
   hosts: localhost
   roles:
-    - role: docker_presets
-    - role: docker_sandbox
+    - role: amtega.docker_presets
+    - role: amtega.docker_sandbox
       docker_sandbox_state: started
       docker_sandbox_idempotence_test: false
 
@@ -15,7 +15,7 @@
     gnu_linux_internet_proxy_http: http://acme.local
     gnu_linux_internet_proxy_https: https://acme.local
   roles:
-    - gnu_linux
+    - amtega.gnu_linux
   tasks:
     - name: get internet proxy environment variables
       shell: >-
@@ -57,5 +57,5 @@
 - name: cleanup docker docker sandbox
   hosts: localhost
   roles:
-    - role: docker_sandbox
+    - role: amtega.docker_sandbox
       docker_sandbox_state: absent
