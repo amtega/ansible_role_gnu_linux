@@ -25,7 +25,7 @@ This is an example playbook:
 
 - hosts: all
   roles:
-    - gnu_linux
+    - amtega.gnu_linux
 ```
 
 ## Testing
@@ -33,14 +33,14 @@ This is an example playbook:
 Test are based on docker containers. You can run the tests with the following commands:
 
 ```shell
-$ cd gnu_linux/test
+$ cd amtega.gnu_linux/test
 $ ansible-playbook main.yml
 ```
 
 If you have docker engine configured you can avoid running dependant 'docker_engine' role (that usually requries root privileges) with the following commands:
 
 ```shell
-$ cd gnu_linux/test
+$ cd amtega.gnu_linux/test
 $ ansible-playbook --skip-tags "role::docker_engine" main.yml
 ```
 
