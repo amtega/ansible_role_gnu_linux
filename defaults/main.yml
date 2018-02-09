@@ -3,8 +3,9 @@
 
 # Internet proxy
 
-gnu_linux_internet_proxy_http:
-gnu_linux_internet_proxy_https:
+#gnu_linux_http_proxy:
+#gnu_linux_https_proxy:
+#gnu_linux_no_proxy:
 
 # Port to check when wait handler is called
 
