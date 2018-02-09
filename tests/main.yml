@@ -12,8 +12,9 @@
   hosts: docker_sandbox_containers
   vars:
     gnu_linux_wait_timeout: 10
-    gnu_linux_internet_proxy_http: http://acme.local
-    gnu_linux_internet_proxy_https: https://acme.local
+    gnu_linux_http_proxy: http://acme.local
+    gnu_linux_https_proxy: https://acme.local
+    gnu_linux_no_proxy: https://acme2.local
   roles:
     - amtega.gnu_linux
   tasks:

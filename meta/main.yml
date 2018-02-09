@@ -22,10 +22,18 @@ galaxy_info:
 dependencies:
   - role: amtega.environment
     environment_config:
-      http_proxy: "{{ gnu_linux_internet_proxy_http }}"
-    when: gnu_linux_internet_proxy_http is defined
+      http_proxy: "{{ gnu_linux_http_proxy }}"
+      HTTP_PROXY: "{{ gnu_linux_http_proxy }}"
+    when: gnu_linux_http_proxy | default('') | length > 0
 
   - role: amtega.environment
     environment_config:
-      https_proxy: "{{ gnu_linux_internet_proxy_https }}"
-    when: gnu_linux_internet_proxy_http is defined
+      https_proxy: "{{ gnu_linux_https_proxy }}"
+      HTTPS_PROXY: "{{ gnu_linux_https_proxy }}"
+    when: gnu_linux_https_proxy | default('') | length > 0
+
+  - role: amtega.environment
+    environment_config:
+      no_proxy: "{{ gnu_linux_no_proxy }}"
+      NO_PROXY: "{{ gnu_linux_no_proxy }}"
+    when: gnu_linux_no_proxy | default('') | length > 0
