@@ -5,6 +5,8 @@
 
 #gnu_linux_http_proxy:
 #gnu_linux_https_proxy:
+
+# List with domains/IPs to bypass previous proxy settings
 #gnu_linux_no_proxy:
 
 # Port to check when wait handler is called
