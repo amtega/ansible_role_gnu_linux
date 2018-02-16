@@ -14,13 +14,20 @@
     gnu_linux_wait_timeout: 10
     gnu_linux_http_proxy: http://acme.local
     gnu_linux_https_proxy: https://acme.local
-    gnu_linux_no_proxy: https://acme2.local
+    gnu_linux_no_proxy:
+      - https://acme2.local
   roles:
     - amtega.gnu_linux
   tasks:
     - name: get internet proxy environment variables
       shell: >-
-        source /etc/environment ; echo $http_proxy ; echo $https_proxy
+        source /etc/environment ;
+        echo $http_proxy ;
+        echo $HTTP_PROXY ;
+        echo $https_proxy ;
+        echo $HTTPS_PROXY ;
+        echo $no_proxy ;
+        echo $NO_PROXY ;
       args:
         executable: /bin/bash
       changed_when: false
@@ -30,7 +37,11 @@
       assert:
         that:
           - get_proxy_variables_result.stdout_lines[0] == "http://acme.local"
-          - get_proxy_variables_result.stdout_lines[1] == "https://acme.local"
+          - get_proxy_variables_result.stdout_lines[1] == "http://acme.local"
+          - get_proxy_variables_result.stdout_lines[2] == "https://acme.local"
+          - get_proxy_variables_result.stdout_lines[3] == "https://acme.local"
+          - get_proxy_variables_result.stdout_lines[4] == "https://acme2.local"
+          - get_proxy_variables_result.stdout_lines[5] == "https://acme2.local"
 
     - name: test gnu_linux wait handler
       copy:
