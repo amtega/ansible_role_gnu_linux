@@ -34,6 +34,6 @@ dependencies:
 
   - role: amtega.environment
     environment_config:
-      no_proxy: "{{ gnu_linux_no_proxy }}"
-      NO_PROXY: "{{ gnu_linux_no_proxy }}"
+      no_proxy: "{{ gnu_linux_no_proxy | join(',') }}"
+      NO_PROXY: "{{ gnu_linux_no_proxy | join(',') }}"
     when: gnu_linux_no_proxy | default('') | length > 0
