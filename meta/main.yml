@@ -3,7 +3,7 @@
 
 galaxy_info:
   author: Juan Antonio Valiño García
-  description: Setup a standard GNU/Linux using another dependant roles
+  description: Setup a standard gnu/linux using another dependant roles
   company: AMTEGA - Xunta de Galicia
   license: GPLv3 or EUPL
   min_ansible_version: 2.4
