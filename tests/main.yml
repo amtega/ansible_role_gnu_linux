@@ -1,5 +1,7 @@
 ---
 
+# Tasks for testing role
+
 - name: run idempotence test
   hosts: localhost
   roles:
