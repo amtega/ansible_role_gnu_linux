@@ -9,11 +9,19 @@
 # List with domains/IPs to bypass previous proxy settings
 #gnu_linux_no_proxy:
 
-# Port to check when wait handler is called
+# Number of seconds to delay the reboot handler
 
-gnu_linux_wait_port: 22
+gnu_linux_reboot_delay: 5
 
-# Rimeout for wait handler
+# Number of seconds to delay the wait handler
+
+gnu_linux_wait_delay: 20
+
+# Number of seconds to sleep between wait attemps
+
+gnu_linux_wait_sleep: 3
+
+# Timeout for wait handler
 
 gnu_linux_wait_timeout: 300
 

@@ -6,12 +6,11 @@ galaxy_info:
   description: Setup a standard gnu/linux using another dependant roles
   company: AMTEGA - Xunta de Galicia
   license: GPLv3 or EUPL
-  min_ansible_version: 2.4
+  min_ansible_version: 2.5
   platforms:
   - name: Fedora
     versions:
-      - 25
-      - 26
+      - 27
       - 27
   - name: EL
     versions:

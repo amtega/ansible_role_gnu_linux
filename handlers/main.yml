@@ -2,7 +2,9 @@
 # Role handlers
 
 - name: gnu_linux reboot
-  command: shutdown -r +1 'Ansible gnu_linux role triggered a reboot'
+  shell: >-
+    ( sleep {{ gnu_linux_reboot_delay }}
+    && shutdown -r now 'Ansible gnu_linux role triggered a reboot' & )
   async: 0
   poll: 0
   changed_when: true
@@ -12,11 +14,9 @@
   check_mode: no
 
 - name: gnu_linux wait
-  wait_for:
-    host: "{{ ansible_host }}"
-    state: started
-    port: "{{ gnu_linux_wait_port | default(ansible_port) | default(22) }}"
-    delay: 5
+  wait_for_connection:
+    sleep: "{{ gnu_linux_wait_sleep }}"
+    delay: "{{ gnu_linux_wait_delay | int + 1 }}"
     timeout: "{{ gnu_linux_wait_timeout | default(300) }}"
   changed_when: false
   listen: wait host

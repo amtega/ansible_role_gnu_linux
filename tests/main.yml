@@ -6,9 +6,17 @@
   hosts: localhost
   roles:
     - role: amtega.docker_presets
+      docker_presets_images_json_query: >-
+        [? starts_with(name, `centos-6`)
+           || starts_with(name, `centos-7`)
+           || starts_with(name, `fedora-27`)
+           || starts_with(name, `fedora-28`) ]
+
     - role: amtega.docker_sandbox
       docker_sandbox_state: started
       docker_sandbox_idempotence_test: false
+  tags:
+    - sandbox
 
 - name: test gnu_linux role
   hosts: docker_sandbox_containers
@@ -73,3 +81,5 @@
   roles:
     - role: amtega.docker_sandbox
       docker_sandbox_state: absent
+  tags:
+    - sandbox
