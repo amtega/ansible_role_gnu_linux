@@ -16,7 +16,7 @@
 - name: gnu_linux wait
   wait_for_connection:
     sleep: "{{ gnu_linux_wait_sleep }}"
-    delay: "{{ gnu_linux_wait_delay }}"
+    delay: "{{ gnu_linux_wait_delay | int + 1 }}"
     timeout: "{{ gnu_linux_wait_timeout | default(300) }}"
   changed_when: false
   listen: wait host
