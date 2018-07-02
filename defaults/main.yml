@@ -11,7 +11,7 @@
 
 # Number of seconds to delay the reboot handler
 
-gnu_linux_reboot_delay: 5
+gnu_linux_reboot_delay: 2
 
 # Number of seconds to delay the wait handler
 
