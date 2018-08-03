@@ -21,6 +21,9 @@
 - name: test gnu_linux role
   hosts: docker_sandbox_containers
   vars:
+    files:
+      - path: /tmp/test
+        state: directory
     gnu_linux_wait_timeout: 10
     gnu_linux_http_proxy: http://acme.local
     gnu_linux_https_proxy: https://acme.local
