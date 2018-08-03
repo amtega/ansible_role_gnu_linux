@@ -6,7 +6,7 @@ See dependant roles documentation to know how to configure each one.
 
 ## Requirements
 
-[Ansible 2.5+](http://docs.ansible.com/ansible/latest/intro_installation.html)
+[Ansible 2.6+](http://docs.ansible.com/ansible/latest/intro_installation.html)
 
 ## Variables
 
