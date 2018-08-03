@@ -1,2 +1,15 @@
 ---
 # Role tasks
+
+- name: assert platform is supported
+  assert:
+    that:
+      - distribution in gnu_linux_supported_distributions
+      - >-
+        ansible_facts.distribution_version
+        is version(gnu_linux_supported_versions[distribution], ">=")
+  vars:
+    distribution: "{{ ansible_facts.distribution | lower }}"
+  tags:
+    - role::gnu_linux
+    - role::gnu_linux::check

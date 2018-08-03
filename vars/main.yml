@@ -1,2 +1,16 @@
 ---
 # Role variables
+
+# Supported distributions
+
+gnu_linux_supported_distributions:
+  - centos
+  - fedora
+  - rhel
+
+# Supported distributions versions
+
+gnu_linux_supported_versions:
+  centos: 6
+  fedora: 27
+  rhel: 6
