@@ -15,6 +15,7 @@ A list of all the default variables for this role is available in `defaults/main
 ## Dependencies
 
 - amtega.environment (if internet proxy is used).
+- amtega.files (if internet proxy is used).
 
 ## Usage
 

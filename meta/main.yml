@@ -37,3 +37,5 @@ dependencies:
       no_proxy: "{{ gnu_linux_no_proxy | join(',') }}"
       NO_PROXY: "{{ gnu_linux_no_proxy | join(',') }}"
     when: gnu_linux_no_proxy | default('') | length > 0
+
+  - role: amtega.files
